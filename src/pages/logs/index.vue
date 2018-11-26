@@ -1,5 +1,6 @@
 <template>
   <div>
+    <i-button bind:click="handleClick" type="error" long="true">联通两边按钮</i-button>
     <ul class="container log-list">
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
         <card :text="(index + 1) + ' . ' + log"></card>
