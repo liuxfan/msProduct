@@ -1,6 +1,9 @@
 <template>
   <div class="container" @click="clickHandle('test click', $event)">
     <i-button bind:click="handleClick" type="error" long="true">联通两边按钮</i-button>
+    <i-button bind:click="handleClick" type="success">Success</i-button>
+    <i-button bind:click="handleClick" type="warning">Warning</i-button>
+    <i-button bind:click="handleClick" type="error">Error</i-button>
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
