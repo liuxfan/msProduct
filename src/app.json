@@ -1,9 +1,10 @@
 {
     "pages": [
-     
+        "pages/resume/main",
+        "pages/ppt/main",
         "pages/index/main", 
         "pages/logs/main",
-        
+        "pages/user/main",
         "pages/counter/main",
         "pages/addResume/main"
     ],
@@ -12,6 +13,35 @@
       "navigationBarBackgroundColor": "#fff",
       "navigationBarTitleText": "WeChat",
       "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+      "selectedColor":"#f00",
+      "list": [{
+        "pagePath": "pages/index/main",
+        "text": "列表式",
+        "iconPath":"static/images/list.png",
+        "selectedIconPath":"static/images/liebiao.png"
+      },
+      {
+        "pagePath": "pages/ppt/main",
+        "text": "PPT式",
+        "iconPath":"static/images/ppt.png",
+        "selectedIconPath":"static/images/hppt.png"
+      },
+      {
+        "pagePath": "pages/resume/main",
+        "text": "简历文件式",
+        "iconPath":"static/images/upload.png",
+        "selectedIconPath":"static/images/shangchuan.png"
+      },
+      {
+        "pagePath": "pages/user/main",
+        "text": "个人中心",
+        "iconPath":"static/images/mine.png",
+        "selectedIconPath":"static/images/homepage.png"
+      }
+
+    ]
     }
   }
   

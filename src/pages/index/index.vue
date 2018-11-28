@@ -1,10 +1,5 @@
 <template>
   <div class="container" @click="clickHandle('test click', $event)">
-    <i-button bind:click="handleClick" type="error" long="true">联通两边按钮</i-button>
-    <i-button bind:click="handleClick" type="success">Success</i-button>
-    <i-button bind:click="handleClick" type="warning">Warning</i-button>
-    <i-button bind:click="handleClick" type="error">Error</i-button>
-
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
@@ -17,12 +12,14 @@
         <card :text="motto"></card>
       </div>
     </div>
-
+    
+    
     <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+   
 
     <footer class="footer">
         <button @click="goAdd()">新增页</button>
@@ -46,6 +43,10 @@ export default {
   },
 
   methods: {
+    handleChange(){
+      console.log(44444444444444)
+
+    },
     bindViewTap () {
       const url = '../logs/main'
       wx.navigateTo({ url })
