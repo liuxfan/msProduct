@@ -12,47 +12,16 @@
     </div>
 </template>
 <script>
-    export default{
-        data(){
-            return {
-                msg:"我是PPT组件",
-                list:[]
-            }
-        },
-        created(){
-            this.requestData();
-            
-        },
-        methods:{
-            gocontent(aid){
-                // console.log(aid)
-                const url = '../newscontent/main?aid='+aid
-                wx.navigateTo({ url })
-
-
-            },
-            requestData(){
-                var that=this;
-                var api="http://www.phonegap100.com/appapi.php"
-                wx.request({
-                url: api, 
-                data: {
-                    a: 'getPortalList',
-                    catid: '20',
-                    page:1
-                },
-                header: {
-                    'content-type': 'application/json' // 默认值
-                },
-                success (res) {
-                    console.log(res.data)
-                    that.list=res.data.result
-                }
-                })                                                      
-            }
-           
+   export default {
+    data () {
+        return {
+        msg: 'PPT组件'
         }
-    }
+    },
+    methods: {
+    
+  }
+}
 </script>
 <style scoped>
 .list{

@@ -11,24 +11,16 @@
     </div>
 </template>
 <script>
-    export default{
-        data(){
-            return {
-                msg:"我是用户组件",
-                list:[]
-            }
-        },
-        created(){
-            for(var i=0;i<5;i++){
-                this.list.push("我是第"+i)
-            }
-        },
-        methods:{
-            run(){
-                console.log("执行方法")
-            }
+   export default {
+    data () {
+        return {
+        msg: '用户组件'
         }
+    },
+    methods: {
+    
     }
+   }
 </script>
 <style scoped>
 .mess{

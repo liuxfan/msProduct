@@ -1,6 +1,11 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
-    <div class="userinfo" @click="bindViewTap">
+  <div class="container" >
+       <div class='resume'>
+            <span>面试简历</span>
+            <img src="../../../static/search.png"/>
+            <img src="../../../static/add.png" style="margin-left:30rpx;" @click="addClick()" />
+        </div>
+    <!-- <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
         <card :text="userInfo.nickName"></card>
@@ -18,12 +23,12 @@
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
    
 
-    <footer class="footer">
+    <!-- <footer class="footer">
         <button @click="goAdd()">新增页</button>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -43,33 +48,31 @@ export default {
   },
 
   methods: {
-    handleChange(){
-      console.log(44444444444444)
-
+    addClick:function () {
+      console.log(1);
+       const url = '../addResume/main'
+       wx.navigateTo({ url })
+                
     },
     bindViewTap () {
       const url = '../logs/main'
       wx.navigateTo({ url })
     },
-    goAdd () {
-      const url = '../addResume/main'
-      wx.navigateTo({ url })
-    },
-    getUserInfo () {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: (res) => {
-              this.userInfo = res.userInfo
-            }
-          })
-        }
-      })
-    },
-    clickHandle (msg, ev) {
-      console.log('clickHandle:', msg, ev)
-    },
+    // getUserInfo () {
+    //   // 调用登录接口
+    //   wx.login({
+    //     success: () => {
+    //       wx.getUserInfo({
+    //         success: (res) => {
+    //           this.userInfo = res.userInfo
+    //         }
+    //       })
+    //     }
+    //   })
+    // },
+    // clickHandle (msg, ev) {
+    //   console.log('clickHandle:', msg, ev)
+    // },
     loginSuccess: function(e) {
       console.log(e.detail.code) // wx.login 的 code
       console.log(e.detail.userInfo) // wx.getUserInfo 的 userInfo
@@ -79,13 +82,31 @@ export default {
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    // this.getUserInfo()
   }
 }
 </script>
 
 <style scoped>
-.userinfo {
+.resume{
+    width: 90%;
+    font-size:55rpx; 
+    text-align: center;
+    display:inline-block;
+}
+.resume span{
+    width: 65%;
+    display: block;
+    float:left;
+}
+.resume img{
+  width:60rpx; 
+  height:60rpx; 
+  margin-top:10rpx;
+  display: inline-block;
+  /* padding-right:2rpx; */
+}
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,5 +145,5 @@ export default {
   width: 100%;
   border-top:1px solid #ccc;
   display: flex;
-}
+} */
 </style>
