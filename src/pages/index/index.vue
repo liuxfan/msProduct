@@ -24,11 +24,6 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
-   
-
-    <!-- <footer class="footer">
-        <button @click="goAdd()">新增页</button>
-    </footer> -->
   </div>
 </template>
 
