@@ -15,7 +15,7 @@
    export default {
     data () {
         return {
-        msg: 'PPT组件'
+        msg: 'PPT组件111'
         }
     },
     methods: {
