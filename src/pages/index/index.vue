@@ -49,10 +49,10 @@ export default {
        wx.navigateTo({ url })
                 
     },
-    bindViewTap () {
-      const url = '../logs/main'
-      wx.navigateTo({ url })
-    },
+    // bindViewTap () {
+    //   const url = '../logs/main'
+    //   wx.navigateTo({ url })
+    // },
     // getUserInfo () {
     //   // 调用登录接口
     //   wx.login({
@@ -68,10 +68,10 @@ export default {
     // clickHandle (msg, ev) {
     //   console.log('clickHandle:', msg, ev)
     // },
-    loginSuccess: function(e) {
-      console.log(e.detail.code) // wx.login 的 code
-      console.log(e.detail.userInfo) // wx.getUserInfo 的 userInfo
-    },
+    // loginSuccess: function(e) {
+    //   console.log(e.detail.code) // wx.login 的 code
+    //   console.log(e.detail.userInfo) // wx.getUserInfo 的 userInfo
+    // },
     
   },
 
