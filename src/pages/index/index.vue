@@ -43,7 +43,7 @@ export default {
      doFindAll:function () { 
       //  var that=this;
            wx.request({
-              url: 'https://zihaoapi.cn/resume/min-intro/findList',
+              url: 'https://www.zihaoapi.cn/resume/min-intro/findList',
               data: {},
               header: {'content-type':'application/json'},
               method: 'GET',
@@ -89,6 +89,9 @@ export default {
   created () {
     // 调用应用实例的方法获取全局数据
     this.doFindAll()
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 }
 </script>
