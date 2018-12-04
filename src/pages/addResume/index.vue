@@ -1,21 +1,18 @@
 <template>
     <div>
-        <picker @change="bindPickerChange" :value="index" :range="array">
+        <picker @change="bindPickerChange" :value="index" :range="fruit">
             <div class="picker">
-                {{array[index]}}<i-icon type="unfold" size="28" color="#80848f" />
+                {{fruit[index]}}<i-icon type="unfold" size="28" color="#80848f" />
             </div>
         </picker>
         <i-button  @click="addTitle" class="addTitle">新增标签</i-button>
         <i-modal title="编辑标题" :visible="visible" @ok="handleConfirm" @cancel="handleClose">
              <i-radio-group  :current="current"  @change="handleChange">
                 <i-radio v-for="item in country"  :key="item.id" :value="item.value">{{item.name}}</i-radio>
-                 <i-radio style="display:inline-block;"></i-radio>
-                 <i-radio for="autoPay">ddd</i-radio>
-                 <input style="display:inline-block;" v-model="inputValue" name="autoPay" type="text" autofocus placeholder="自定义添加" />
+                 <i-radio :value="inputValue"></i-radio>
+                 <input v-model="inputValue" type="text" autofocus placeholder="自定义添加" />
                  
-                <!-- <div>你输入的是：{{inputValue}}</div> -->
-                <!-- <input class="check-input" type="radio" id="autoPay" name="autoPay" value="1" v-model="epolicy.transfer.autoPay"/> -->
-        <!-- <label for="autoPay">是</label> -->
+             
                  
             </i-radio-group>
         </i-modal>
@@ -26,36 +23,18 @@
 export default {
   data () {
     return {
+      list:'',
       inputValue:'',
       visible: false,
-      current: '中国',
       country: [ 
         {id:0,name: 'CHN', value: '中国'},
         {id:1,name: 'USA', value: '美国'},
         {id:2,name: 'BRA', value: '巴西'},
         {id:3,name: 'JPN', value: '日本'}
       ],
-    //   array: ['美国', '中国', '巴西', '日本'],
-      array: [],
-      objectArray: [
-      {
-        id: 0,
-        name: '美国'
-      },
-      {
-        id: 1,
-        name: '中国'
-      },
-      {
-        id: 2,
-        name: '巴西'
-      },
-      {
-        id: 3,
-        name: '日本'
-      }
-    ],
-    index: 1 //下拉菜单
+      current: '中国',
+      fruit: ['苹果', '香蕉', '橘子', '西瓜'],
+      index: 1 //下拉菜单默认项
     }
   },
   methods: {
@@ -67,6 +46,11 @@ export default {
     },
     handleConfirm(){
         this.visible=false;
+        this.country.push(this.inputValue)       
+        // console.log("aaaaaa",this.list)
+        console.log("77777",this.country)
+
+
     },
     handleChange(e){
         this.current= e.mp.detail.value
@@ -75,14 +59,9 @@ export default {
         console.log('picker发送选择改变，携带值为', e.mp.detail.value)
         this.index=e.mp.detail.value
     },
-    bindKeyInput(e){
-        console.log(e.mp.detail.value)
-         this.inputValue=e.mp.detail.value;
-         
-    },
     doFindAll:function () { 
            wx.request({
-              url: 'https://zihaoapi.cn/main/min-intro/findAll',
+              url: 'https://zihaoapi.cn/resume/min-intro/findAll',
               data: {},
               header: {'content-type':'application/json'},
               method: 'GET',

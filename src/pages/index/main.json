@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "列表式",
     "usingComponents": {
+      "i-icon": "../../../static/iview/icon/index"
     
   }
 }
