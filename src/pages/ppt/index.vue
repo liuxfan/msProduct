@@ -25,7 +25,7 @@
     methods: {
         findListPPT:function () { 
            wx.request({
-              url: 'https://zihaoapi.cn/resume/min-intro/findListForPPT',
+              url: 'https://www.zihaoapi.cn/resume/min-intro/findListForPPT',
               data: {},
               header: {'content-type':'application/json'},
               method: 'GET',
