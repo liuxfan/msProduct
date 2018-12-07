@@ -58,32 +58,13 @@ export default {
     bindPickerChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.mp.detail.value)
         this.index=e.mp.detail.value
-    },
-    doFindAll:function () { 
-           wx.request({
-              url: 'https://zihaoapi.cn/resume/min-intro/findAll',
-              data: {},
-              header: {'content-type':'application/json'},
-              method: 'GET',
-              dataType: 'json',
-              responseType: 'text',
-              success: (res)=>{
-                  if (res.data.code == 1) {
-                      console.log(res.data.data.minTitleList);
-                    //   this.array = res.data.data.minTitleList
-                  }
-              },
-              fail: ()=>{},
-              complete: ()=>{}
-          })
-       }
+    }
   },
   mounted(){
       
   },
   created () {
     // 调用应用实例的方法获取全局数据
-    this.doFindAll()
   }
 }
 </script>

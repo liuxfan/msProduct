@@ -1,7 +1,6 @@
 {
     "navigationBarTitleText": "PPT式",
     "usingComponents": {
-        "i-button": "../../../static/iview/button/index"
       
     }
     

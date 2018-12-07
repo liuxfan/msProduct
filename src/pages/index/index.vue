@@ -40,7 +40,7 @@ export default {
        wx.navigateTo({ url })
                 
     },
-     doFindAll:function () { 
+    findList:function () { 
       //  var that=this;
            wx.request({
               url: 'https://zihaoapi.cn/resume/min-intro/findList',
@@ -50,10 +50,10 @@ export default {
               dataType: 'json',
               responseType: 'text',
               success: (res)=>{
-                console.log("aaa",res)
+                // console.log("aaa",res)
                   if (res.data.code == 1) {
                     this.titleList=res.data.data;
-                    console.log(this.titleList)  
+                    // console.log(this.titleList)  
                   }
               },
               fail: ()=>{},
@@ -88,7 +88,7 @@ export default {
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.doFindAll()
+    this.findList()
   }
 }
 </script>
