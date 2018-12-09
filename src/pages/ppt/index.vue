@@ -1,13 +1,25 @@
 <template>
     <div>
-        <div v-for="(insured,index) in dataList" :key="index">
+        <!-- <div v-for="(insured,index) in dataList" :key="index">
             <div v-for="(insure,insureIndex) in insured.minTitleList" :key="insureIndex" class="list-item">
                 <p class="titileName">{{insure.titileName}}</p>
                 <div v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex" class="attribute">
                     {{attr.contentKey}}:{{attr.contentValue}}
                 </div>
             </div>
-        </div>
+        </div> -->
+        <swiper indicator-dots circular=true>
+            <block v-for="(insured,index) in dataList" :key="index">
+                <swiper-item>
+                    <div v-for="(insure,insureIndex) in insured.minTitleList" :key="insureIndex">
+                        <p class="titileName">{{insure.titileName}}</p>
+                        <div v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex">
+                            {{attr.contentKey}}:{{attr.contentValue}}
+                        </div>
+                    </div>
+                </swiper-item>
+            </block>
+        </swiper>
     </div>
 </template>
 <script>
@@ -15,7 +27,7 @@
     data () {
         return {
             msg: 'PPT组件111',
-            dataList:[]
+            dataList:[],
         }
     },
     created () {

@@ -10,10 +10,7 @@
              <i-radio-group  :current="current"  @change="handleChange">
                 <i-radio v-for="item in country"  :key="item.id" :value="item.value">{{item.name}}</i-radio>
                  <i-radio :value="inputValue"></i-radio>
-                 <input v-model="inputValue" type="text" autofocus placeholder="自定义添加" />
-                 
-             
-                 
+                 <input v-model="inputValue" type="text" autofocus placeholder="自定义添加" /> 
             </i-radio-group>
         </i-modal>
     </div>

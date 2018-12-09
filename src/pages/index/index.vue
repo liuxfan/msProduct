@@ -3,17 +3,19 @@
        <div class='resume'>
             <span>面试简历</span>
             <img src="../../../static/search.png"/>
-            <img src="../../../static/add.png" style="margin-left:30rpx;" @click="addClick()" />
+            <picker @change="bindPickerChange" :range="fruit" style="display:inline-block" >
+                <img src="../../../static/add.png" style="margin-left:30rpx;"/>
+            </picker>
         </div>
         <ul class="list">
-            <li v-for="(item,index) in titleList" :key="index" class="nameList">
+            <li v-for="(item,index) in titleList" :key="index" class="nameList" @click="listClick(item)">
                 <span class="labelName">[{{item.labelName}}]</span>
                 <span class="titleName">{{item.titleName}}</span>
                 <span calss="createTime">{{item.createTime}}</span>
                 <i-icon type="brush" size="24" color="#80848f" />
             </li>
         </ul>
-          
+        
   </div>
 </template>
 
@@ -23,6 +25,9 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      isShow:false,
+      fruit: ['添加', '扫一扫', '橘子'],
+      index: 1 ,//下拉菜单默认项
       motto: 'Hello World',
       userInfo: {},
       titleList:[]
@@ -34,14 +39,19 @@ export default {
   },
 
   methods: {
-    addClick:function () {
-      console.log(1);
-       const url = '../addResume/main'
-       wx.navigateTo({ url })
-                
+    listClick:function (val) {
+      const url = '../edit/main'
+      wx.navigateTo({ 
+        url:`${url}? id = ${val.id}`
+      })
+    },
+    bindPickerChange: function(e) {
+      if (e.mp.detail.value == 0) {
+          const url = '../addResume/main'
+          wx.navigateTo({ url })
+      }
     },
     findList:function () { 
-      //  var that=this;
            wx.request({
               url: 'https://www.zihaoapi.cn/resume/min-intro/findList',
               data: {},
@@ -50,39 +60,50 @@ export default {
               dataType: 'json',
               responseType: 'text',
               success: (res)=>{
-                // console.log("aaa",res)
                   if (res.data.code == 1) {
                     this.titleList=res.data.data;
-                    // console.log(this.titleList)  
                   }
               },
               fail: ()=>{},
               complete: ()=>{}
           })
-    }
-    // bindViewTap () {
-    //   const url = '../logs/main'
-    //   wx.navigateTo({ url })
-    // },
-    // getUserInfo () {
-    //   // 调用登录接口
-    //   wx.login({
-    //     success: () => {
-    //       wx.getUserInfo({
-    //         success: (res) => {
-    //           this.userInfo = res.userInfo
-    //         }
-    //       })
-    //     }
-    //   })
-    // },
+    },
+    findPickerList:function () { 
+           wx.request({
+              url: 'https://www.zihaoapi.cn/resume/min-intro/findList',
+              data: {},
+              header: {'content-type':'application/json'},
+              method: 'GET',
+              dataType: 'json',
+              responseType: 'text',
+              success: (res)=>{
+                  if (res.data.code == 1) {
+                    this.titleList=res.data.data;
+                  }
+              },
+              fail: ()=>{},
+              complete: ()=>{}
+          })
+    },
+    getUserInfo () {
+      // 调用登录接口
+      wx.login({
+        success: () => {
+          wx.getUserInfo({
+            success: (res) => {
+              this.userInfo = res.userInfo
+            }
+          })
+        }
+      })
+    },
     // clickHandle (msg, ev) {
     //   console.log('clickHandle:', msg, ev)
     // },
-    // loginSuccess: function(e) {
-    //   console.log(e.detail.code) // wx.login 的 code
-    //   console.log(e.detail.userInfo) // wx.getUserInfo 的 userInfo
-    // },
+    loginSuccess: function(e) {
+      console.log(e.detail.code) // wx.login 的 code
+      console.log(e.detail.userInfo) // wx.getUserInfo 的 userInfo
+    },
     
   },
 

@@ -1,13 +1,13 @@
 {
     "pages": [
-      
         "pages/index/main", 
         "pages/resume/main",
         "pages/ppt/main",
         "pages/logs/main",
         "pages/user/main",
         "pages/counter/main",
-        "pages/addResume/main"
+        "pages/addResume/main",
+        "pages/edit/main"
     ],
     "window": {
       "backgroundTextStyle": "light",
