@@ -42,7 +42,8 @@ export default {
     listClick:function (val) {
       const url = '../edit/main'
       wx.navigateTo({ 
-        url:`${url}? id = ${val.id}`
+        url:`${url}?id=${val.id}`
+
       })
     },
     bindPickerChange: function(e) {

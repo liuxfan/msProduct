@@ -12,7 +12,7 @@
             <block v-for="(insured,index) in dataList" :key="index">
                 <swiper-item>
                     <div v-for="(insure,insureIndex) in insured.minTitleList" :key="insureIndex">
-                        <p class="titileName">{{insure.titileName}}</p>
+                        <p class="titileName">{{insure.titleName}}</p>
                         <div v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex">
                             {{attr.contentKey}}:{{attr.contentValue}}
                         </div>
