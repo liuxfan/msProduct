@@ -3,8 +3,8 @@
         <span>{{labelName}}</span>
         <div v-for="(insure,insureIndex) in minTitleList" :key="insureIndex">
             <div v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex">
-                 <i-input :value="attr.contentKey" autofocus placeholder="请输入" />
-                 <i-input :value="attr.contentValue"  autofocus placeholder="请输入" />
+                 <input :value="attr.contentKey" autofocus placeholder="请输入" />
+                 <input :value="attr.contentValue"  autofocus placeholder="请输入" />
             </div>
         </div>
     </div>
@@ -46,9 +46,6 @@ export default {
     // 调用应用实例的方法获取全局数据
   },
   methods: {
-      edit(){
-
-      }
       
     
   },
