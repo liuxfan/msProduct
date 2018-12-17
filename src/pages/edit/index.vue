@@ -1,12 +1,15 @@
 <template>
     <div>
         <span>{{labelName}}</span>
-        <div v-for="(insure,insureIndex) in minTitleList" :key="insureIndex">
-            <div v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex">
-                 <input :value="attr.contentKey" autofocus placeholder="请输入" />
-                 <input :value="attr.contentValue"  autofocus placeholder="请输入" />
-            </div>
-        </div>
+        <form  @submit="formSubmit" v-for="(insure,insureIndex) in minTitleList" :key="insureIndex"> 
+            <view class="section" v-for="(attr,attrIndex) in insure.minContentList" :key="attrIndex" :v-model="from">
+                <input :name="'['+attrIndex+']contentKey'" contentKey="contentKey" :value="attr.contentKey" autofocus placeholder="请输入" />
+                <input :name="'['+attrIndex+']contentValue'" contentValue="contentValue" :value="attr.contentValue" autofocus placeholder="请输入" />
+            </view>
+            <view class="btn-area">
+                <button form-type="submit">Submit</button>
+            </view>
+        </form>
     </div>
 </template>
 
@@ -15,7 +18,11 @@ export default {
   data () {
     return {
         labelName:'',
-        minTitleList:[]
+        minTitleList:[],
+        from:{
+            contentKey:'',
+            contentValue:''
+        }
     }
   },
   onLoad:function (options) {
@@ -46,14 +53,15 @@ export default {
     // 调用应用实例的方法获取全局数据
   },
   methods: {
-      
-    
-  },
-  mounted(){
-     
-    
-    
-  },
+    formSubmit:function(e){
+        console.log('form发生了submit事件，携带数据为：', e.mp.detail.value)
+        var arr = []
+        for (let i in e.mp.detail.value) {
+            arr.push(e.mp.detail.value[i])
+        }
+        console.log(arr)
+    }
+  }
  
   
 }

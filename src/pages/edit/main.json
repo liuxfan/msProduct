@@ -1,7 +1,7 @@
 {
     "navigationBarTitleText": "编辑页",
     "usingComponents": {
+        "i-button": "../../../static/iview/button/index",
         "i-input": "../../../static/iview/input/index"
-        
     }
 }

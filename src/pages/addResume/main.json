@@ -5,8 +5,8 @@
         "i-modal": "../../../static/iview/modal/index",
         "i-radio-group": "../../../static/iview/radio-group/index",
         "i-radio": "../../../static/iview/radio/index",
-        "i-icon": "../../../static/iview/icon/index"
-
+        "i-icon": "../../../static/iview/icon/index",
+        "i-tag": "../../../static/iview/tag/index"
         
     }
     

@@ -1,15 +1,23 @@
 <template>
     <div>
-        <picker @change="bindPickerChange" :value="index" :range="labelList">
-            <div class="picker">
-                {{labelList[index]}}<i-icon type="unfold" size="25" color="#80848f" />
-            </div>
-        </picker>
-        <button  @click="addLabelTitle" class="addLabelTitle">标题</button>
+        
+            <picker @change="bindPickerChange" :value="index" :range="labelList">
+                <div class="picker">
+                    <i-tag color="red">
+                        {{labelList[index]}}
+                    </i-tag>
+                    <i-icon type="unfold" size="25" color="#80848f" />
+                </div>
+            </picker>
+        
+        <button  @click="addLabelTitle" class="addLabelTitle">{{current}}</button>
         <i-modal title="编辑标题" :visible="visible"  @ok="handleConfirm" @cancel="handleClose">
              <i-radio-group  :current="current"  @change="handleChange">
                 <i-radio v-for="item in titleList"  :key="item.id" :value="item.titileName">
                     {{item.titileName}}
+                </i-radio>
+                <i-radio>
+                    <input/>
                 </i-radio>
             </i-radio-group>
         </i-modal>
@@ -34,9 +42,8 @@ export default {
       index: 0, //下拉菜单默认项
       visible: false,
       titleList:[],//标题列表
-      current:'我是谁',
+      current:'标题',
       contentList:[],//内容列表
-      
     }
   },
   mounted(){
@@ -143,7 +150,6 @@ export default {
 }
 .addLabelTitle{
     position: absolute;
-    width:150rpx;
     height:80rpx;
     line-height: 80rpx;
     top:80rpx;
