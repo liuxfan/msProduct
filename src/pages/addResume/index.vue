@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        {{openId}}
             <picker @change="bindPickerChange" :value="index" :range="labelList">
                 <div class="picker">
                     <i-tag color="red">
@@ -45,6 +45,12 @@ export default {
       current:'标题',
       contentList:[],//内容列表
     }
+  },
+  computed:{
+      openId () {
+        return this.$store.state.openId
+     }
+
   },
   mounted(){
       //标签列表
